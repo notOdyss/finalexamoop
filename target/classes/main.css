@@ -1,0 +1,41 @@
+.root {
+    -fx-background-color: #1e1e1e;
+}
+
+.title {
+    -fx-font-size: 36px;
+    -fx-text-fill: white;
+}
+
+.main-button {
+    -fx-font-size: 16px;
+    -fx-pref-width: 240;
+    -fx-pref-height: 45;
+    -fx-background-color: #3a7afe;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+}
+VBox {
+    -fx-background-color: transparent;
+}
+.card {
+    -fx-background-color: #2a2a2a;
+    -fx-padding: 30;
+    -fx-background-radius: 12;
+    -fx-max-height: 300;
+    -fx-alignment: center;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0.3, 0, 5);
+}
+
+
+.text-field, .password-field {
+    -fx-pref-width: 300;
+    -fx-font-size: 14px;
+}
+
+.title-small {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+}
+

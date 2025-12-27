@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.workspace.controllers.RegisterController"
+           styleClass="root">
+
+    <VBox alignment="CENTER"
+          spacing="15"
+          maxWidth="400"
+          maxHeight="300"
+          styleClass="card">
+
+        <Label text="Регистрация" styleClass="title-small"/>
+
+        <TextField fx:id="usernameField" promptText="Username"/>
+        <PasswordField fx:id="passwordField" promptText="Password"/>
+
+        <Button text="Зарегистрироваться" onAction="#onRegister"/>
+        <Button text="← Назад" onAction="#onBack"/>
+
+    </VBox>
+
+</StackPane>
