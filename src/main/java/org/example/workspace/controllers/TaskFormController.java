@@ -123,6 +123,34 @@ public class TaskFormController {
         }
     }
 
+    private boolean validateForm(String title, LocalDate startDate, LocalDate deadline) {
+        if (title.isEmpty()) {
+            AlertUtil.showError("Validation Error", "Please enter a task title");
+            return false;
+        }
+
+        if (title.length() < 3) {
+            AlertUtil.showError("Validation Error", "Title must be at least 3 characters long");
+            return false;
+        }
+
+        if (startDate != null && deadline != null && startDate.isAfter(deadline)) {
+            AlertUtil.showError("Validation Error", "Start date cannot be after deadline date");
+            return false;
+        }
+
+        // warn about past deadlines but still allow
+        if (deadline != null && deadline.isBefore(LocalDate.now())) {
+            boolean confirm = AlertUtil.showConfirmation("Past Deadline",
+                    "The deadline you selected is in the past. Do you want to continue?");
+            if (!confirm) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     @FXML
     private void handleSave() {
         String title = titleField.getText().trim();
@@ -132,27 +160,8 @@ public class TaskFormController {
         LocalDate startDate = startDatePicker.getValue();
         LocalDate deadline = deadlinePicker.getValue();
 
-        if (title.isEmpty()) {
-            AlertUtil.showError("Validation Error", "Please enter a task title");
+        if (!validateForm(title, startDate, deadline)) {
             return;
-        }
-
-        if (title.length() < 3) {
-            AlertUtil.showError("Validation Error", "Title must be at least 3 characters long");
-            return;
-        }
-
-        if (startDate != null && deadline != null && startDate.isAfter(deadline)) {
-            AlertUtil.showError("Validation Error", "Start date cannot be after deadline date");
-            return;
-        }
-
-        if (deadline != null && deadline.isBefore(LocalDate.now())) {
-            boolean confirm = AlertUtil.showConfirmation("Past Deadline",
-                    "The deadline you selected is in the past. Do you want to continue?");
-            if (!confirm) {
-                return;
-            }
         }
 
         boolean success;

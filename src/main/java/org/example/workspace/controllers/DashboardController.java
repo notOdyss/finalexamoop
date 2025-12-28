@@ -5,6 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.HBox;
 import org.example.workspace.dao.TaskDAO;
 import org.example.workspace.models.Task;
@@ -77,7 +80,35 @@ public class DashboardController {
 
         welcomeLabel.setText("Welcome, " + Session.getInstance().getCurrentUsername() + "!");
 
+        setupKeyboardShortcuts();
         loadTasks();
+    }
+
+    private void setupKeyboardShortcuts() {
+        tasksTable.setOnKeyPressed(event -> {
+            KeyCombination newTaskShortcut = new KeyCodeCombination(KeyCode.N, KeyCombination.CONTROL_DOWN);
+            KeyCombination refreshShortcut = new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_DOWN);
+            KeyCombination searchShortcut = new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN);
+
+            if (newTaskShortcut.match(event)) {
+                handleAddTask();
+                event.consume();
+            } else if (refreshShortcut.match(event)) {
+                handleRefresh();
+                event.consume();
+            } else if (searchShortcut.match(event)) {
+                searchField.requestFocus();
+                event.consume();
+            }
+        });
+
+        searchField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                searchField.clear();
+                tasksTable.requestFocus();
+                loadTasks();
+            }
+        });
     }
 
     private void loadTasks() {
