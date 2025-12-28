@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.workspace.controllers.DashboardController"
+            styleClass="desktop-app-root">
+
+    <left>
+        <VBox styleClass="desktop-sidebar" minWidth="240" prefWidth="240">
+            <padding>
+                <Insets top="30" right="0" bottom="30" left="0"/>
+            </padding>
+
+            <VBox alignment="CENTER_LEFT" spacing="8">
+                <padding>
+                    <Insets left="25" right="25" bottom="30"/>
+                </padding>
+                <Label text="⚡ TaskMaster" styleClass="sidebar-brand"/>
+                <Label fx:id="welcomeLabel" text="Welcome, User!" styleClass="sidebar-user"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Button text="Calendar" onAction="#handleBackToCalendar" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Task List" styleClass="sidebar-btn-active" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Analytics" onAction="#handleViewStatistics" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Profile" onAction="#handleViewProfile" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets left="15" right="15"/>
+                </padding>
+                <Button text="Logout" onAction="#handleLogout" styleClass="sidebar-btn-danger" prefHeight="40" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox styleClass="desktop-main-content">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="desktop-header">
+                <padding>
+                    <Insets top="25" right="40" bottom="25" left="40"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label text="Task List" styleClass="page-title"/>
+                    <Label text="Manage and track all your tasks" styleClass="page-subtitle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="+ New Task" onAction="#handleAddTask" styleClass="desktop-btn-create" prefHeight="45" prefWidth="140"/>
+                <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="desktop-btn-secondary" prefHeight="45" prefWidth="110"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="desktop-toolbar">
+                <padding>
+                    <Insets top="20" right="40" bottom="20" left="40"/>
+                </padding>
+
+                <TextField fx:id="searchField"
+                           promptText="🔍  Search tasks..."
+                           prefWidth="350"
+                           prefHeight="45"
+                           styleClass="desktop-search-field"/>
+
+                <Button text="Search" onAction="#handleSearch" styleClass="desktop-btn-search" prefHeight="45" prefWidth="100"/>
+
+                <ComboBox fx:id="filterComboBox"
+                          promptText="Filter by status"
+                          prefWidth="200"
+                          prefHeight="45"
+                          onAction="#handleFilter"
+                          styleClass="desktop-combo"/>
+
+                <Label text="|" styleClass="toolbar-separator"/>
+                <Label text="Total Tasks:" styleClass="toolbar-label"/>
+                <Label text="0" styleClass="toolbar-count"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="desktop-scroll">
+                <VBox>
+                    <padding>
+                        <Insets top="10" right="40" bottom="30" left="40"/>
+                    </padding>
+
+                    <TableView fx:id="tasksTable" VBox.vgrow="ALWAYS" styleClass="desktop-table">
+                        <columns>
+                            <TableColumn fx:id="idColumn" text="ID" prefWidth="60" minWidth="50" maxWidth="80"/>
+                            <TableColumn fx:id="titleColumn" text="Task Title" prefWidth="350" minWidth="250"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="130" minWidth="100"/>
+                            <TableColumn fx:id="priorityColumn" text="Priority" prefWidth="110" minWidth="90"/>
+                            <TableColumn fx:id="deadlineColumn" text="Deadline" prefWidth="140" minWidth="120"/>
+                            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="180" minWidth="150" sortable="false"/>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+</BorderPane>

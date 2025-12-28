@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.workspace.controllers.TaskFormController"
+            styleClass="root">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="header-section">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            <Button text="← Back to Calendar" onAction="#handleBack" styleClass="btn-link" prefHeight="35"/>
+            <Label text="Task Form" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="20" maxWidth="900">
+                <padding>
+                    <Insets top="30" right="50" bottom="30" left="50"/>
+                </padding>
+
+                <VBox spacing="25" styleClass="card">
+                    <padding>
+                        <Insets top="30" right="50" bottom="30" left="50"/>
+                    </padding>
+
+                    <Label text="Task Details" styleClass="section-title"/>
+
+                    <VBox spacing="8">
+                        <Label text="Task Title *" styleClass="field-label"/>
+                        <TextField fx:id="titleField"
+                                   promptText="Enter task title"
+                                   prefHeight="40"
+                                   styleClass="text-field"/>
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="Description" styleClass="field-label"/>
+                        <TextArea fx:id="descriptionArea"
+                                  promptText="Enter task description"
+                                  prefRowCount="5"
+                                  wrapText="true"
+                                  styleClass="text-area"/>
+                    </VBox>
+
+                    <HBox spacing="30">
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                            <Label text="Status *" styleClass="field-label"/>
+                            <ComboBox fx:id="statusComboBox"
+                                      minWidth="350"
+                                      prefWidth="Infinity"
+                                      prefHeight="55"
+                                      maxWidth="Infinity"
+                                      styleClass="combo-box-large"/>
+                        </VBox>
+
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                            <Label text="Priority" styleClass="field-label"/>
+                            <ComboBox fx:id="priorityComboBox"
+                                      minWidth="350"
+                                      prefWidth="Infinity"
+                                      prefHeight="55"
+                                      maxWidth="Infinity"
+                                      styleClass="combo-box-large"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="30">
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                            <Label text="Start Date" styleClass="field-label"/>
+                            <DatePicker fx:id="startDatePicker"
+                                        promptText="Select start date"
+                                        minWidth="350"
+                                        prefWidth="Infinity"
+                                        prefHeight="55"
+                                        maxWidth="Infinity"
+                                        styleClass="date-picker-large"/>
+                        </VBox>
+
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                            <Label text="Deadline Date" styleClass="field-label"/>
+                            <DatePicker fx:id="deadlinePicker"
+                                        promptText="Select deadline date"
+                                        minWidth="350"
+                                        prefWidth="Infinity"
+                                        prefHeight="55"
+                                        maxWidth="Infinity"
+                                        styleClass="date-picker-large"/>
+                        </VBox>
+                    </HBox>
+
+                    <Separator/>
+
+                    <HBox spacing="15" alignment="CENTER">
+                        <Button text="Save Task"
+                                onAction="#handleSave"
+                                styleClass="btn-success"
+                                prefWidth="150"
+                                prefHeight="45"/>
+
+                        <Button text="Clear"
+                                onAction="#handleClear"
+                                styleClass="btn-secondary"
+                                prefWidth="120"
+                                prefHeight="45"/>
+
+                        <Button text="Cancel"
+                                onAction="#handleBack"
+                                styleClass="btn-danger"
+                                prefWidth="120"
+                                prefHeight="45"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

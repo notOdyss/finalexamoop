@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.workspace.controllers.CalendarController"
+            styleClass="desktop-app-root">
+
+    <left>
+        <VBox styleClass="desktop-sidebar" minWidth="240" prefWidth="240">
+            <padding>
+                <Insets top="30" right="0" bottom="30" left="0"/>
+            </padding>
+
+            <VBox alignment="CENTER_LEFT" spacing="8">
+                <padding>
+                    <Insets left="25" right="25" bottom="30"/>
+                </padding>
+                <Label text="⚡ TaskMaster" styleClass="sidebar-brand"/>
+                <Label fx:id="welcomeLabel" text="Welcome, User!" styleClass="sidebar-user"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Button text="Calendar" styleClass="sidebar-btn-active" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Task List" onAction="#handleBackToDashboard" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Analytics" onAction="#handleViewStatistics" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Profile" onAction="#handleViewProfile" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets left="15" right="15"/>
+                </padding>
+                <Button text="Logout" onAction="#handleLogout" styleClass="sidebar-btn-danger" prefHeight="40" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox styleClass="desktop-main-content">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="desktop-header">
+                <padding>
+                    <Insets top="25" right="40" bottom="25" left="40"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label fx:id="monthYearLabel" text="January 2025" styleClass="page-title"/>
+                    <Label text="Manage your schedule and track deadlines" styleClass="page-subtitle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="+ New Task" onAction="#handleAddTask" styleClass="desktop-btn-create" prefHeight="45" prefWidth="140"/>
+                <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="desktop-btn-secondary" prefHeight="45" prefWidth="110"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="desktop-toolbar">
+                <padding>
+                    <Insets top="20" right="40" bottom="20" left="40"/>
+                </padding>
+
+                <Button text="◀ Previous" onAction="#handlePreviousMonth" styleClass="desktop-btn-secondary" prefHeight="45" prefWidth="120"/>
+                <Button text="Today" onAction="#handleToday" styleClass="desktop-btn-search" prefHeight="45" prefWidth="100"/>
+                <Button text="Next ▶" onAction="#handleNextMonth" styleClass="desktop-btn-secondary" prefHeight="45" prefWidth="120"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="Right-click on any date to add tasks" styleClass="toolbar-label" style="-fx-font-size: 13px;"/>
+            </HBox>
+
+            <VBox styleClass="calendar-main-container" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="20" right="40" bottom="30" left="40"/>
+                </padding>
+
+                <GridPane fx:id="calendarGrid"
+                          styleClass="calendar-grid-modern"
+                          hgap="3"
+                          vgap="3"
+                          VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="14.28" hgrow="ALWAYS"/>
+                    </columnConstraints>
+                </GridPane>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

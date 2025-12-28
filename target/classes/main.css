@@ -1,41 +1,1679 @@
+/* ===========================
+   Modern Task Manager CSS
+   Dark Theme with Blue Accents
+   =========================== */
+
+/* Root & Base Styles */
 .root {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: #0f1419;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
-.title {
-    -fx-font-size: 36px;
-    -fx-text-fill: white;
+/* App Title (Welcome Screen) */
+.app-title {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
 }
 
-.main-button {
-    -fx-font-size: 16px;
-    -fx-pref-width: 240;
-    -fx-pref-height: 45;
-    -fx-background-color: #3a7afe;
-    -fx-text-fill: white;
-    -fx-background-radius: 8;
+.app-subtitle {
+    -fx-font-size: 18px;
+    -fx-text-fill: #8b949e;
 }
-VBox {
-    -fx-background-color: transparent;
-}
+
+/* Card Styles */
 .card {
-    -fx-background-color: #2a2a2a;
-    -fx-padding: 30;
-    -fx-background-radius: 12;
-    -fx-max-height: 300;
-    -fx-alignment: center;
-
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 20, 0.3, 0, 5);
+    -fx-background-color: #161b22;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.2, 0, 4);
 }
 
+.card-danger {
+    -fx-border-color: #f85149;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+}
 
+.card-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.card-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+/* Header Styles */
+.header-section {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Filter Section */
+.filter-section {
+    -fx-background-color: #0d1117;
+}
+
+/* Text Fields */
 .text-field, .password-field {
-    -fx-pref-width: 300;
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #c9d1d9;
+    -fx-prompt-text-fill: #8b949e;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 8px 12px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+.text-area {
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #6e7681;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 8px;
+}
+
+.text-area:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+.text-area .content {
+    -fx-background-color: #0d1117;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #0d1117;
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: #0d1117;
+}
+
+.text-area .scroll-pane .content {
+    -fx-background-color: #0d1117;
+}
+
+/* Labels */
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #c9d1d9;
+}
+
+.field-value {
+    -fx-font-size: 15px;
+    -fx-text-fill: #8b949e;
+}
+
+.footer-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #8b949e;
+}
+
+.separator {
+    -fx-text-fill: #30363d;
+}
+
+/* Buttons - Primary */
+.btn-primary {
+    -fx-background-color: #238636;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #2ea043;
+}
+
+.btn-primary:pressed {
+    -fx-background-color: #1a7f37;
+}
+
+/* Buttons - Secondary */
+.btn-secondary {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #30363d;
+    -fx-border-color: #8b949e;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: #161b22;
+}
+
+/* Buttons - Success (Add Task) */
+.btn-success {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.btn-success:hover {
+    -fx-background-color: #388bfd;
+}
+
+.btn-success:pressed {
+    -fx-background-color: #1a5bc7;
+}
+
+/* Buttons - Danger */
+.btn-danger {
+    -fx-background-color: #da3633;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #f85149;
+}
+
+.btn-danger:pressed {
+    -fx-background-color: #b22a27;
+}
+
+/* Buttons - Warning */
+.btn-warning {
+    -fx-background-color: #bb8009;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.btn-warning:hover {
+    -fx-background-color: #d29922;
+}
+
+/* Buttons - Link Style */
+.btn-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+.btn-link:hover {
+    -fx-text-fill: #79c0ff;
+}
+
+/* ComboBox - IMPROVED VISIBILITY */
+.combo-box {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-min-height: 50px;
+    -fx-pref-height: 50px;
+}
+
+/* ComboBox Large - for Task Form */
+.combo-box-large {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-min-height: 55px;
+    -fx-pref-height: 55px;
+    -fx-min-width: 350px;
+}
+
+.combo-box-large:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+.combo-box-large > .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-padding: 12px 20px;
+}
+
+.combo-box-large .text {
+    -fx-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.combo-box-large .arrow-button {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 0 8px 8px 0;
+    -fx-padding: 15px;
+}
+
+.combo-box-large .arrow {
+    -fx-background-color: #c9d1d9;
+    -fx-padding: 5px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+/* ComboBox selected value text - CRITICAL FIX */
+.combo-box > .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-padding: 10px 15px;
+}
+
+.combo-box .text {
+    -fx-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 0 6px 6px 0;
+    -fx-padding: 10px;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #c9d1d9;
+    -fx-padding: 4px;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+}
+
+/* Dropdown items */
+.combo-box-popup .list-view {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.3, 0, 5);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #c9d1d9;
+    -fx-padding: 12px 15px;
     -fx-font-size: 14px;
 }
 
-.title-small {
-    -fx-font-size: 24px;
-    -fx-text-fill: white;
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
 }
 
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #ffffff;
+}
+
+/* DatePicker */
+.date-picker {
+    -fx-background-color: #0d1117;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #c9d1d9;
+}
+
+/* DatePicker Large - for Task Form */
+.date-picker-large {
+    -fx-background-color: #0d1117;
+    -fx-min-width: 350px;
+    -fx-pref-height: 55px;
+}
+
+.date-picker-large > .text-field {
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-prompt-text-fill: #6e7681;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-padding: 12px 20px;
+    -fx-min-height: 55px;
+    -fx-pref-height: 55px;
+}
+
+.date-picker-large:focused > .text-field {
+    -fx-border-color: #1f6feb;
+}
+
+.date-picker-large .arrow-button {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 0 8px 8px 0;
+    -fx-padding: 15px;
+}
+
+.date-picker-large .arrow-button .arrow {
+    -fx-background-color: #c9d1d9;
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #161b22;
+    -fx-table-cell-border-color: #30363d;
+}
+
+.table-view .column-header {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-weight: bold;
+    -fx-border-color: #30363d;
+}
+
+.table-view .column-header:hover {
+    -fx-background-color: #30363d;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #c9d1d9;
+    -fx-border-color: #21262d;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #161b22;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #21262d;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #c9d1d9;
+    -fx-padding: 8px;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: #0d1117;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #30363d;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #484f58;
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #8b949e;
+}
+
+/* Statistics Cards */
+.stat-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.1, 0, 2);
+}
+
+.stat-card-primary {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8px;
+}
+
+.stat-card-success {
+    -fx-border-color: #238636;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8px;
+}
+
+.stat-card-warning {
+    -fx-border-color: #d29922;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8px;
+}
+
+.stat-card-info {
+    -fx-border-color: #58a6ff;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8px;
+}
+
+.stat-card-danger {
+    -fx-border-color: #f85149;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 8px;
+}
+
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 600;
+}
+
+.stat-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Warning and Danger Text */
+.warning-text {
+    -fx-text-fill: #d29922;
+    -fx-font-size: 13px;
+}
+
+.danger-text {
+    -fx-text-fill: #f85149;
+}
+
+/* PieChart */
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-legend {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #c9d1d9;
+}
+
+.chart-pie-label {
+    -fx-fill: #c9d1d9;
+    -fx-font-size: 12px;
+}
+
+/* Top Bar */
+.top-bar {
+    -fx-background-color: #161b22;
+}
+
+/* ===========================
+   MODERN CALENDAR VIEW STYLES
+   =========================== */
+
+.header-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+.calendar-controls-bar {
+    -fx-background-color: #0d1117;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1 0 1 0;
+}
+
+.month-year-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-min-width: 220px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.3), 10, 0.3, 0, 0);
+}
+
+/* Calendar Navigation Buttons */
+.btn-nav {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-nav:hover {
+    -fx-background-color: #30363d;
+    -fx-border-color: #58a6ff;
+}
+
+.btn-today {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.4), 8, 0.3, 0, 2);
+}
+
+.btn-today:hover {
+    -fx-background-color: #388bfd;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-add-task {
+    -fx-background-color: linear-gradient(to bottom right, #238636, #2ea043);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(35, 134, 54, 0.4), 10, 0.3, 0, 3);
+}
+
+.btn-add-task:hover {
+    -fx-background-color: linear-gradient(to bottom right, #2ea043, #3fb950);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-refresh {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-refresh:hover {
+    -fx-background-color: #30363d;
+    -fx-border-color: #58a6ff;
+}
+
+.btn-view-switch {
+    -fx-background-color: #1a1f26;
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8px;
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-view-switch:hover {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+}
+
+/* Calendar Container */
+.calendar-container {
+    -fx-background-color: transparent;
+}
+
+.calendar-grid-modern {
+    -fx-background-color: #0d1117;
+    -fx-padding: 5px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 5);
+}
+
+.calendar-header {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58a6ff;
+    -fx-background-color: #161b22;
+    -fx-padding: 16px;
+    -fx-alignment: center;
+    -fx-background-radius: 6px 6px 0 0;
+}
+
+/* Calendar Day Cells - MODERN */
+.calendar-day {
+    -fx-background-color: #161b22;
+    -fx-border-color: #21262d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0.1, 0, 1);
+}
+
+.calendar-day:hover {
+    -fx-background-color: #1a2332;
+    -fx-border-color: #58a6ff;
+    -fx-border-width: 2px;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.4), 8, 0.3, 0, 3);
+}
+
+.calendar-day-today {
+    -fx-background-color: linear-gradient(to bottom right, #1a2f47, #1f3a5f);
+    -fx-border-color: #58a6ff;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.6), 12, 0.4, 0, 4);
+}
+
+.calendar-day-today:hover {
+    -fx-background-color: linear-gradient(to bottom right, #1f3a5f, #2a4a7a);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.day-number {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.task-count {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: linear-gradient(to right, #1f6feb, #58a6ff);
+    -fx-padding: 5px 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.5), 6, 0.3, 0, 2);
+}
+
+.task-preview {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8b949e;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-font-style: italic;
+}
+
+/* Modern Status Bar */
+.status-bar-modern {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-icon {
+    -fx-font-size: 18px;
+    -fx-padding: 0 10 0 0;
+}
+
+.status-text-modern {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+}
+
+/* ===========================
+   CONTEXT MENU STYLES
+   =========================== */
+
+.context-menu {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.3, 0, 5);
+}
+
+.context-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c9d1d9;
+    -fx-padding: 10px 20px;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+}
+
+.context-menu .separator {
+    -fx-padding: 2px 0px;
+}
+
+.context-menu .separator .line {
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* ===========================
+   TRELLO-STYLE TASK CARDS
+   =========================== */
+
+.trello-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0.2, 0, 1);
+}
+
+.trello-card:hover {
+    -fx-background-color: #f6f8fa;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.3, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.trello-card-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #24292f;
+    -fx-wrap-text: true;
+}
+
+/* Task Trail Bars */
+.task-trail {
+    -fx-cursor: hand;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+}
+
+.task-trail:hover {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0.3, 0, 2);
+}
+
+.task-trail-with-title {
+    -fx-background-radius: 3px;
+}
+
+.trail-container-clickable {
+    -fx-cursor: hand;
+}
+
+.trail-container-clickable:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 6, 0.3, 0, 2);
+}
+
+.trail-title {
+    -fx-cursor: hand;
+}
+
+/* Trello Label Badges */
+.trello-label {
+    -fx-cursor: hand;
+}
+
+/* ===========================
+   MODERN AUTH UI STYLES
+   =========================== */
+
+.auth-root {
+    -fx-background-color: #0d1117;
+}
+
+.auth-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.25), 30, 0.3, 0, 10);
+    -fx-border-color: linear-gradient(to bottom, #30363d, #21262d);
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+}
+
+.auth-title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.3), 5, 0.3, 0, 2);
+}
+
+.auth-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+}
+
+.auth-field-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #58a6ff;
+    -fx-letter-spacing: 0.5px;
+}
+
+.auth-input-container {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 12px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 12px;
+    -fx-border-width: 2px;
+    -fx-padding: 15px 20px;
+    -fx-alignment: center-left;
+}
+
+.auth-input-container:focused-within {
+    -fx-border-color: #1f6feb;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.3), 10, 0.3, 0, 0);
+}
+
+.auth-text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-prompt-text-fill: #6e7681;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+}
+
+.auth-text-field:focused {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+}
+
+.auth-btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #1f6feb, #388bfd);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.4), 15, 0.3, 0, 5);
+}
+
+.auth-btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #388bfd, #58a6ff);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.6), 20, 0.4, 0, 8);
+}
+
+.auth-btn-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom right, #1a5bc7, #1f6feb);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.auth-btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.auth-btn-secondary:hover {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-border-color: #8b949e;
+}
+
+.auth-btn-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+.auth-btn-link:hover {
+    -fx-text-fill: #79c0ff;
+    -fx-underline: true;
+}
+
+.auth-helper-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+/* ===========================
+   MODERN WELCOME PAGE STYLES
+   =========================== */
+
+.welcome-root {
+    -fx-background-color: #0d1117;
+}
+
+.welcome-title {
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to right, #58a6ff, #79c0ff);
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.5), 10, 0.4, 0, 3);
+}
+
+.welcome-subtitle {
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #c9d1d9;
+}
+
+.welcome-description {
+    -fx-font-size: 15px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+}
+
+.feature-pill {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 15px;
+    -fx-padding: 20px 25px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.2, 0, 3);
+}
+
+.feature-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #8b949e;
+}
+
+.welcome-btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #1f6feb, #388bfd);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.5), 20, 0.4, 0, 6);
+}
+
+.welcome-btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #388bfd, #58a6ff);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.7), 25, 0.5, 0, 8);
+}
+
+.welcome-btn-primary:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.welcome-btn-secondary {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 17px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 14px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 2px;
+    -fx-border-radius: 14px;
+    -fx-cursor: hand;
+}
+
+.welcome-btn-secondary:hover {
+    -fx-background-color: #30363d;
+    -fx-border-color: #58a6ff;
+    -fx-text-fill: #ffffff;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.welcome-btn-secondary:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.welcome-footer {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6e7681;
+    -fx-font-weight: 600;
+}
+
+.welcome-footer-sub {
+    -fx-font-size: 11px;
+    -fx-text-fill: #484f58;
+    -fx-font-weight: 500;
+}
+
+/* ===========================
+   DESKTOP WEB APP AUTH STYLES
+   =========================== */
+
+.desktop-auth-root {
+    -fx-background-color: #0d1117;
+}
+
+.auth-left-panel {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 60px;
+    -fx-min-width: 500px;
+    -fx-max-width: 500px;
+}
+
+.auth-right-panel {
+    -fx-background-color: #0d1117;
+    -fx-min-width: 600px;
+}
+
+.auth-brand-title {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58a6ff;
+}
+
+.auth-brand-title-large {
+    -fx-font-size: 56px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-letter-spacing: -1px;
+}
+
+.auth-brand-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.auth-brand-subtitle-large {
+    -fx-font-size: 18px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+}
+
+.auth-brand-motto {
+    -fx-font-size: 14px;
+    -fx-text-fill: #3fb950;
+    -fx-font-weight: 600;
+    -fx-text-alignment: center;
+}
+
+.auth-feature-text {
+    -fx-font-size: 15px;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-weight: 500;
+}
+
+.auth-feature-title {
+    -fx-font-size: 15px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 600;
+}
+
+.auth-feature-desc {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 400;
+    -fx-wrap-text: true;
+}
+
+.auth-feature-title-clean {
+    -fx-font-size: 17px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 600;
+}
+
+.auth-feature-desc-clean {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 400;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 2px;
+}
+
+.auth-stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 500;
+}
+
+.auth-testimonial-text {
+    -fx-font-size: 15px;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-weight: 500;
+    -fx-font-style: italic;
+}
+
+.auth-field-hint {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6e7681;
+    -fx-font-weight: 400;
+    -fx-padding: 2 0 0 0;
+}
+
+.auth-checkbox {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 13px;
+}
+
+.auth-checkbox .box {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.auth-checkbox:selected .box {
+    -fx-background-color: #238636;
+    -fx-border-color: #238636;
+}
+
+.auth-checkbox:hover .box {
+    -fx-border-color: #58a6ff;
+}
+
+.auth-checkbox .mark {
+    -fx-background-color: #ffffff;
+}
+
+.auth-form-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.auth-form-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #8b949e;
+}
+
+.desktop-field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #c9d1d9;
+}
+
+.desktop-text-field {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-prompt-text-fill: #6e7681;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 12px 15px;
+}
+
+.desktop-text-field:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+.desktop-btn-primary {
+    -fx-background-color: #238636;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-primary:hover {
+    -fx-background-color: #2ea043;
+    -fx-scale-y: 1.02;
+}
+
+.desktop-btn-primary:pressed {
+    -fx-background-color: #1a7f37;
+}
+
+.desktop-btn-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+    -fx-underline: false;
+}
+
+.desktop-btn-link:hover {
+    -fx-text-fill: #79c0ff;
+    -fx-underline: true;
+}
+
+.desktop-btn-ghost {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-ghost:hover {
+    -fx-text-fill: #c9d1d9;
+}
+
+.desktop-helper-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+/* ===========================
+   DESKTOP WEB APP LAYOUT STYLES
+   =========================== */
+
+.desktop-app-root {
+    -fx-background-color: #0d1117;
+}
+
+/* Sidebar Navigation */
+.desktop-sidebar {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-brand {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58a6ff;
+}
+
+.sidebar-user {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-alignment: center-left;
+    -fx-padding: 12px 25px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #ffffff;
+}
+
+.sidebar-btn-active {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-alignment: center-left;
+    -fx-padding: 12px 25px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+}
+
+.sidebar-btn-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f85149;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-alignment: center;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+    -fx-border-color: #f85149;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+}
+
+.sidebar-btn-danger:hover {
+    -fx-background-color: #f85149;
+    -fx-text-fill: #ffffff;
+}
+
+/* Main Content Area */
+.desktop-main-content {
+    -fx-background-color: #0d1117;
+}
+
+.desktop-header {
+    -fx-background-color: #0d1117;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 1 0;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+.desktop-toolbar {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 1 0;
+}
+
+.desktop-search-field {
+    -fx-background-color: #0d1117;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #6e7681;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 15px;
+}
+
+.desktop-search-field:focused {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 2px;
+}
+
+.desktop-combo {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1px;
+}
+
+.desktop-btn-create {
+    -fx-background-color: #238636;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-create:hover {
+    -fx-background-color: #2ea043;
+}
+
+.desktop-btn-secondary {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-secondary:hover {
+    -fx-background-color: #30363d;
+    -fx-border-color: #8b949e;
+}
+
+.desktop-btn-search {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-search:hover {
+    -fx-background-color: #388bfd;
+}
+
+.toolbar-separator {
+    -fx-font-size: 18px;
+    -fx-text-fill: #30363d;
+}
+
+.toolbar-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 600;
+}
+
+.toolbar-count {
+    -fx-font-size: 13px;
+    -fx-text-fill: #58a6ff;
+    -fx-font-weight: 700;
+}
+
+.desktop-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.desktop-table {
+    -fx-background-color: #161b22;
+}
+
+/* Desktop Statistics Cards */
+.desktop-stat-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.1, 0, 2);
+}
+
+.desktop-stat-primary {
+    -fx-border-color: #1f6feb;
+    -fx-border-width: 0 0 3 0;
+}
+
+.desktop-stat-warning {
+    -fx-border-color: #d29922;
+    -fx-border-width: 0 0 3 0;
+}
+
+.desktop-stat-info {
+    -fx-border-color: #58a6ff;
+    -fx-border-width: 0 0 3 0;
+}
+
+.desktop-stat-success {
+    -fx-border-color: #3fb950;
+    -fx-border-width: 0 0 3 0;
+}
+
+.desktop-stat-danger {
+    -fx-border-color: #f85149;
+    -fx-border-width: 0 0 3 0;
+}
+
+.desktop-stat-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8b949e;
+    -fx-font-weight: 600;
+    -fx-padding: 5px 0 0 0;
+}
+
+.desktop-stat-value {
+    -fx-font-size: 42px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0 0 0;
+}
+
+.desktop-chart-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 8px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.desktop-chart-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 0 0 5 0;
+}
+
+.desktop-chart-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+    -fx-padding: 0 0 20 0;
+}
+
+.desktop-pie-chart {
+    -fx-background-color: transparent;
+}
+
+/* ===========================
+   DESKTOP PROFILE PAGE STYLES
+   =========================== */
+
+.desktop-profile-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 10px;
+    -fx-border-color: #30363d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0.1, 0, 2);
+}
+
+.desktop-card-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.desktop-card-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8b949e;
+}
+
+.desktop-profile-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #8b949e;
+}
+
+.desktop-profile-value {
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #ffffff;
+}
+
+.desktop-btn-warning {
+    -fx-background-color: #d29922;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-warning:hover {
+    -fx-background-color: #e3b341;
+}
+
+.desktop-btn-warning:pressed {
+    -fx-background-color: #bb8a1e;
+}
+
+.desktop-btn-danger {
+    -fx-background-color: #da3633;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.desktop-btn-danger:hover {
+    -fx-background-color: #f85149;
+}
+
+.desktop-btn-danger:pressed {
+    -fx-background-color: #b62324;
+}
+
+.desktop-danger-card {
+    -fx-border-color: #da3633;
+    -fx-border-width: 2px;
+}
+
+.desktop-danger-title {
+    -fx-text-fill: #f85149;
+}
+
+.desktop-warning-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #f85149;
+    -fx-font-weight: 500;
+    -fx-line-spacing: 2px;
+}
+
+.separator {
+    -fx-background-color: #30363d;
+}
+
+/* ===========================
+   CALENDAR MODERN CONTAINER
+   =========================== */
+
+.calendar-main-container {
+    -fx-background-color: #0d1117;
+}

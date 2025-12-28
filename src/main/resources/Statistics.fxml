@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.workspace.controllers.StatisticsController"
+            styleClass="desktop-app-root">
+
+    <left>
+        <VBox styleClass="desktop-sidebar" minWidth="240" prefWidth="240">
+            <padding>
+                <Insets top="30" right="0" bottom="30" left="0"/>
+            </padding>
+
+            <VBox alignment="CENTER_LEFT" spacing="8">
+                <padding>
+                    <Insets left="25" right="25" bottom="30"/>
+                </padding>
+                <Label text="⚡ TaskMaster" styleClass="sidebar-brand"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Button text="Calendar" onAction="#handleBack" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Task List" onAction="#handleBackToDashboard" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Analytics" styleClass="sidebar-btn-active" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Profile" onAction="#handleViewProfile" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets left="15" right="15"/>
+                </padding>
+                <Button text="Logout" onAction="#handleLogout" styleClass="sidebar-btn-danger" prefHeight="40" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox styleClass="desktop-main-content">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="desktop-header">
+                <padding>
+                    <Insets top="25" right="40" bottom="25" left="40"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label text="Analytics Dashboard" styleClass="page-title"/>
+                    <Label text="Track your productivity and task completion" styleClass="page-subtitle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="desktop-btn-secondary" prefHeight="45" prefWidth="110"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="desktop-scroll">
+                <VBox spacing="30">
+                    <padding>
+                        <Insets top="25" right="40" bottom="40" left="40"/>
+                    </padding>
+
+                    <GridPane hgap="20" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25" minWidth="200"/>
+                            <ColumnConstraints percentWidth="25" minWidth="200"/>
+                            <ColumnConstraints percentWidth="25" minWidth="200"/>
+                            <ColumnConstraints percentWidth="25" minWidth="200"/>
+                        </columnConstraints>
+
+                        <VBox GridPane.columnIndex="0" styleClass="desktop-stat-card desktop-stat-primary">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="📊" style="-fx-font-size: 32px;"/>
+                            <Label text="Total Tasks" styleClass="desktop-stat-label"/>
+                            <Label fx:id="totalTasksLabel" text="0" styleClass="desktop-stat-value"/>
+                        </VBox>
+
+                        <VBox GridPane.columnIndex="1" styleClass="desktop-stat-card desktop-stat-warning">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="📝" style="-fx-font-size: 32px;"/>
+                            <Label text="To Do" styleClass="desktop-stat-label"/>
+                            <Label fx:id="todoTasksLabel" text="0" styleClass="desktop-stat-value"/>
+                        </VBox>
+
+                        <VBox GridPane.columnIndex="2" styleClass="desktop-stat-card desktop-stat-info">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="⚡" style="-fx-font-size: 32px;"/>
+                            <Label text="In Progress" styleClass="desktop-stat-label"/>
+                            <Label fx:id="inProgressTasksLabel" text="0" styleClass="desktop-stat-value"/>
+                        </VBox>
+
+                        <VBox GridPane.columnIndex="3" styleClass="desktop-stat-card desktop-stat-success">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="✅" style="-fx-font-size: 32px;"/>
+                            <Label text="Completed" styleClass="desktop-stat-label"/>
+                            <Label fx:id="completedTasksLabel" text="0" styleClass="desktop-stat-value"/>
+                        </VBox>
+                    </GridPane>
+
+                    <HBox spacing="20">
+                        <VBox HBox.hgrow="ALWAYS" styleClass="desktop-stat-card desktop-stat-danger">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="⚠️" style="-fx-font-size: 32px;"/>
+                            <Label text="Overdue Tasks" styleClass="desktop-stat-label"/>
+                            <Label fx:id="overdueTasksLabel" text="0" styleClass="desktop-stat-value"/>
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS" styleClass="desktop-stat-card desktop-stat-info">
+                            <padding>
+                                <Insets top="25" right="25" bottom="25" left="25"/>
+                            </padding>
+                            <Label text="🎯" style="-fx-font-size: 32px;"/>
+                            <Label text="Completion Rate" styleClass="desktop-stat-label"/>
+                            <Label fx:id="completionRateLabel" text="0%" styleClass="desktop-stat-value"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="desktop-chart-card">
+                        <padding>
+                            <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
+                        <Label text="Task Distribution" styleClass="desktop-chart-title"/>
+                        <Label text="Visual breakdown of your tasks by status" styleClass="desktop-chart-subtitle"/>
+                        <PieChart fx:id="tasksPieChart" minHeight="400" legendVisible="true" styleClass="desktop-pie-chart"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.workspace.controllers.ProfileController"
+            styleClass="desktop-app-root">
+
+    <left>
+        <VBox styleClass="desktop-sidebar" minWidth="240" prefWidth="240">
+            <padding>
+                <Insets top="30" right="0" bottom="30" left="0"/>
+            </padding>
+
+            <VBox alignment="CENTER_LEFT" spacing="8">
+                <padding>
+                    <Insets left="25" right="25" bottom="30"/>
+                </padding>
+                <Label text="⚡ TaskMaster" styleClass="sidebar-brand"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Button text="Calendar" onAction="#handleBack" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Task List" onAction="#handleBackToDashboard" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Analytics" onAction="#handleViewStatistics" styleClass="sidebar-btn" prefHeight="45" maxWidth="Infinity"/>
+                <Button text="Profile" styleClass="sidebar-btn-active" prefHeight="45" maxWidth="Infinity"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets left="15" right="15"/>
+                </padding>
+                <Button text="Logout" onAction="#handleLogout" styleClass="sidebar-btn-danger" prefHeight="40" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox styleClass="desktop-main-content">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="desktop-header">
+                <padding>
+                    <Insets top="25" right="40" bottom="25" left="40"/>
+                </padding>
+
+                <VBox spacing="5">
+                    <Label text="User Profile" styleClass="page-title"/>
+                    <Label text="Manage your account settings and preferences" styleClass="page-subtitle"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="desktop-scroll">
+                <VBox spacing="25">
+                    <padding>
+                        <Insets top="25" right="40" bottom="40" left="40"/>
+                    </padding>
+
+                    <VBox spacing="20" styleClass="desktop-profile-card">
+                        <padding>
+                            <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="👤" style="-fx-font-size: 40px;"/>
+                            <VBox spacing="5">
+                                <Label text="Profile Information" styleClass="desktop-card-title"/>
+                                <Label text="Your account details" styleClass="desktop-card-subtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <Separator/>
+
+                        <GridPane hgap="20" vgap="20">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="150" prefWidth="180"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+
+                            <Label text="Username:" styleClass="desktop-profile-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label fx:id="usernameDisplayLabel" text="user123" styleClass="desktop-profile-value" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                            <Label text="Email:" styleClass="desktop-profile-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label fx:id="emailDisplayLabel" text="user@example.com" styleClass="desktop-profile-value" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Member Since:" styleClass="desktop-profile-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label fx:id="memberSinceLabel" text="January 1, 2025" styleClass="desktop-profile-value" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        </GridPane>
+                    </VBox>
+
+                    <VBox spacing="20" styleClass="desktop-profile-card">
+                        <padding>
+                            <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="✏️" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Edit Profile" styleClass="desktop-card-title"/>
+                                <Label text="Update your username and email" styleClass="desktop-card-subtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <Separator/>
+
+                        <HBox spacing="20">
+                            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                <Label text="New Username" styleClass="desktop-field-label"/>
+                                <TextField fx:id="usernameField"
+                                           promptText="Enter new username"
+                                           prefHeight="50"
+                                           styleClass="desktop-text-field"/>
+                            </VBox>
+
+                            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                <Label text="New Email" styleClass="desktop-field-label"/>
+                                <TextField fx:id="emailField"
+                                           promptText="Enter new email"
+                                           prefHeight="50"
+                                           styleClass="desktop-text-field"/>
+                            </VBox>
+                        </HBox>
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Button text="Update Profile"
+                                    onAction="#handleUpdateProfile"
+                                    styleClass="desktop-btn-primary"
+                                    prefHeight="45"
+                                    prefWidth="160"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="20" styleClass="desktop-profile-card">
+                        <padding>
+                            <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="🔒" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Change Password" styleClass="desktop-card-title"/>
+                                <Label text="Update your password for security" styleClass="desktop-card-subtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <Separator/>
+
+                        <VBox spacing="15">
+                            <VBox spacing="10">
+                                <Label text="Current Password" styleClass="desktop-field-label"/>
+                                <PasswordField fx:id="currentPasswordField"
+                                               promptText="Enter current password"
+                                               prefHeight="50"
+                                               styleClass="desktop-text-field"/>
+                            </VBox>
+
+                            <HBox spacing="20">
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                    <Label text="New Password" styleClass="desktop-field-label"/>
+                                    <PasswordField fx:id="newPasswordField"
+                                                   promptText="Enter new password (min 6 chars)"
+                                                   prefHeight="50"
+                                                   styleClass="desktop-text-field"/>
+                                </VBox>
+
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                    <Label text="Confirm New Password" styleClass="desktop-field-label"/>
+                                    <PasswordField fx:id="confirmPasswordField"
+                                                   promptText="Re-enter new password"
+                                                   prefHeight="50"
+                                                   styleClass="desktop-text-field"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Button text="Change Password"
+                                    onAction="#handleChangePassword"
+                                    styleClass="desktop-btn-warning"
+                                    prefHeight="45"
+                                    prefWidth="160"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="20" styleClass="desktop-profile-card desktop-danger-card">
+                        <padding>
+                            <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="⚠️" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Danger Zone" styleClass="desktop-card-title desktop-danger-title"/>
+                                <Label text="Irreversible actions - proceed with caution" styleClass="desktop-card-subtitle"/>
+                            </VBox>
+                        </HBox>
+
+                        <Separator/>
+
+                        <Label text="Once you delete your account, there is no going back. All your tasks will be permanently deleted."
+                               wrapText="true"
+                               styleClass="desktop-warning-text"/>
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Button text="Delete Account"
+                                    onAction="#handleDeleteAccount"
+                                    styleClass="desktop-btn-danger"
+                                    prefHeight="45"
+                                    prefWidth="160"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+</BorderPane>

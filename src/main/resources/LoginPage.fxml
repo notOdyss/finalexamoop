@@ -1,28 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="org.example.workspace.controllers.LoginController"
-           styleClass="root">
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.workspace.controllers.LoginController"
+      styleClass="desktop-auth-root">
 
-    <VBox alignment="CENTER"
-          spacing="15"
-          maxWidth="400"
-          maxHeight="300"
-          styleClass="card">
+    <VBox alignment="CENTER" spacing="50" styleClass="auth-left-panel" HBox.hgrow="ALWAYS">
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="TaskMaster" styleClass="auth-brand-title-large"/>
+            <Label text="Professional Task Management" styleClass="auth-brand-subtitle-large"/>
+        </VBox>
 
-        <Label text="Вход" styleClass="title-small"/>
+        <VBox alignment="CENTER_LEFT" spacing="20" style="-fx-max-width: 450px;">
+            <VBox spacing="8">
+                <Label text="Organize Tasks" styleClass="auth-feature-title-clean"/>
+                <Label text="Keep all your tasks organized in one place with powerful tools" styleClass="auth-feature-desc-clean"/>
+            </VBox>
 
-        <TextField fx:id="usernameField" promptText="Username"/>
-        <PasswordField fx:id="passwordField" promptText="Password"/>
+            <VBox spacing="8">
+                <Label text="Track Progress" styleClass="auth-feature-title-clean"/>
+                <Label text="Monitor your productivity with detailed analytics and insights" styleClass="auth-feature-desc-clean"/>
+            </VBox>
 
-        <Button text="Войти" onAction="#onLogin"/>
-        <Button text="← Назад" onAction="#onBack"/>
+            <VBox spacing="8">
+                <Label text="Meet Deadlines" styleClass="auth-feature-title-clean"/>
+                <Label text="Calendar view helps you stay on top of all your deadlines" styleClass="auth-feature-desc-clean"/>
+            </VBox>
 
+            <VBox spacing="8">
+                <Label text="Collaborate" styleClass="auth-feature-title-clean"/>
+                <Label text="Work together with your team seamlessly" styleClass="auth-feature-desc-clean"/>
+            </VBox>
+        </VBox>
     </VBox>
 
-</StackPane>
+    <VBox alignment="CENTER" spacing="40" styleClass="auth-right-panel" HBox.hgrow="ALWAYS">
+        <padding>
+            <Insets top="40" right="90" bottom="40" left="90"/>
+        </padding>
+
+        <Region VBox.vgrow="ALWAYS" minHeight="20"/>
+
+        <VBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="Welcome Back" styleClass="auth-form-title"/>
+            <Label text="Sign in to your account" styleClass="auth-form-subtitle"/>
+        </VBox>
+
+        <VBox spacing="26" style="-fx-min-width: 500px;">
+            <VBox spacing="10">
+                <Label text="Username" styleClass="desktop-field-label"/>
+                <TextField fx:id="usernameField"
+                           promptText="Enter your username"
+                           prefHeight="55"
+                           styleClass="desktop-text-field"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Password" styleClass="desktop-field-label"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Forgot?" styleClass="desktop-btn-link" style="-fx-font-size: 12px;"/>
+                </HBox>
+                <PasswordField fx:id="passwordField"
+                               promptText="Enter your password"
+                               prefHeight="55"
+                               styleClass="desktop-text-field"/>
+            </VBox>
+
+            <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 8 0 0 0;">
+                <CheckBox text="Remember me" styleClass="auth-checkbox"/>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="20">
+            <Button text="Sign In"
+                    onAction="#onLogin"
+                    styleClass="desktop-btn-primary"
+                    prefWidth="Infinity"
+                    prefHeight="58"
+                    style="-fx-font-size: 17px;"/>
+
+            <Separator style="-fx-background-color: #30363d;"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Don't have an account?" styleClass="desktop-helper-text"/>
+                <Button text="Create one"
+                        onAction="#onRegister"
+                        styleClass="desktop-btn-link"
+                        style="-fx-font-size: 15px; -fx-font-weight: 700;"/>
+            </HBox>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS" minHeight="20"/>
+
+        <Button text="Back"
+                onAction="#onBack"
+                styleClass="desktop-btn-ghost"
+                prefHeight="42"/>
+    </VBox>
+
+</HBox>

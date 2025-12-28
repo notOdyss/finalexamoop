@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 
 import java.net.URL;
+import java.util.function.Consumer;
 
 public class SceneManager {
 
@@ -20,14 +21,10 @@ public class SceneManager {
 
     public static void switchScene(String fxml) {
         try {
-            System.out.println("LOADING FXML: " + fxml);
-
-            // Попробуем несколько стратегий поиска ресурса
-            URL url = SceneManager.class.getResource("/" + fxml); // корень resources
-            if (url == null) url = SceneManager.class.getResource(fxml); // относительный пакет utils
-            if (url == null) url = SceneManager.class.getClassLoader().getResource(fxml); // classloader root
-            if (url == null) url = SceneManager.class.getClassLoader().getResource("org.example.workspace/" + fxml); // твоя папка org.example.workspace
-            System.out.println("FXML URL = " + url);
+            URL url = SceneManager.class.getResource("/" + fxml);
+            if (url == null) url = SceneManager.class.getResource(fxml);
+            if (url == null) url = SceneManager.class.getClassLoader().getResource(fxml);
+            if (url == null) url = SceneManager.class.getClassLoader().getResource("org.example.workspace/" + fxml);
 
             if (url == null) {
                 throw new RuntimeException("FXML not found: tried several locations for " + fxml);
@@ -36,16 +33,50 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(url);
             Scene scene = new Scene(loader.load());
 
-            // Аналогично ищем CSS
             URL cssUrl = SceneManager.class.getResource("/main.css");
             if (cssUrl == null) cssUrl = SceneManager.class.getClassLoader().getResource("main.css");
             if (cssUrl == null) cssUrl = SceneManager.class.getClassLoader().getResource("org.example.workspace/main.css");
-            System.out.println("CSS URL = " + cssUrl);
             if (cssUrl != null) {
                 scene.getStylesheets().add(cssUrl.toExternalForm());
             }
             stage.setScene(scene);
-            //stage.setMaximized(true);
+            Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+            stage.setX(bounds.getMinX());
+            stage.setY(bounds.getMinY());
+            stage.setWidth(bounds.getWidth());
+            stage.setHeight(bounds.getHeight());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static <T> void switchSceneWithData(String fxml, Consumer<T> controllerInitializer) {
+        try {
+            URL url = SceneManager.class.getResource("/" + fxml);
+            if (url == null) url = SceneManager.class.getResource(fxml);
+            if (url == null) url = SceneManager.class.getClassLoader().getResource(fxml);
+            if (url == null) url = SceneManager.class.getClassLoader().getResource("org.example.workspace/" + fxml);
+
+            if (url == null) {
+                throw new RuntimeException("FXML not found: tried several locations for " + fxml);
+            }
+
+            FXMLLoader loader = new FXMLLoader(url);
+            Scene scene = new Scene(loader.load());
+
+            T controller = loader.getController();
+            if (controller != null && controllerInitializer != null) {
+                controllerInitializer.accept(controller);
+            }
+
+            URL cssUrl = SceneManager.class.getResource("/main.css");
+            if (cssUrl == null) cssUrl = SceneManager.class.getClassLoader().getResource("main.css");
+            if (cssUrl == null) cssUrl = SceneManager.class.getClassLoader().getResource("org.example.workspace/main.css");
+            if (cssUrl != null) {
+                scene.getStylesheets().add(cssUrl.toExternalForm());
+            }
+
+            stage.setScene(scene);
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             stage.setX(bounds.getMinX());
             stage.setY(bounds.getMinY());
