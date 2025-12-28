@@ -20,13 +20,11 @@ public class DatabaseManager {
             config.setJdbcUrl(DB_URL);
             config.setUsername(DB_USER);
             config.setPassword(DB_PASSWORD);
-
-            // connection pool settings
             config.setMaximumPoolSize(10);
             config.setMinimumIdle(2);
-            config.setConnectionTimeout(30000);  // 30 seconds
-            config.setIdleTimeout(600000);       // 10 minutes
-            config.setMaxLifetime(1800000);      // 30 minutes
+            config.setConnectionTimeout(30000);
+            config.setIdleTimeout(600000);
+            config.setMaxLifetime(1800000);
 
             dataSource = new HikariDataSource(config);
         } catch (Exception e) {

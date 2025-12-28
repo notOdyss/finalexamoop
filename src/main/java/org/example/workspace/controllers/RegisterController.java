@@ -7,7 +7,6 @@ import org.example.workspace.dao.UserDAO;
 import org.example.workspace.models.User;
 import org.example.workspace.utils.AlertUtil;
 import org.example.workspace.utils.SceneManager;
-import org.example.workspace.utils.ValidationUtil;
 
 import java.util.Optional;
 
@@ -39,21 +38,23 @@ public class RegisterController {
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
 
-        String usernameError = ValidationUtil.getUsernameError(username);
-        if (usernameError != null) {
-            AlertUtil.showError("Registration Error", usernameError);
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            AlertUtil.showError("Registration Error", "Please fill in all fields");
             return;
         }
 
-        String emailError = ValidationUtil.getEmailError(email);
-        if (emailError != null) {
-            AlertUtil.showError("Registration Error", emailError);
+        if (username.length() < 3) {
+            AlertUtil.showError("Registration Error", "Username must be at least 3 characters long");
             return;
         }
 
-        String passwordError = ValidationUtil.getPasswordError(password);
-        if (passwordError != null) {
-            AlertUtil.showError("Registration Error", passwordError);
+        if (!email.contains("@") || !email.contains(".")) {
+            AlertUtil.showError("Registration Error", "Please enter a valid email address");
+            return;
+        }
+
+        if (password.length() < 6) {
+            AlertUtil.showError("Registration Error", "Password must be at least 6 characters long");
             return;
         }
 

@@ -47,7 +47,6 @@ public class CalendarController {
         if (userId != null) {
             List<Task> allTasks = taskDAO.getTasksByUserId(userId);
 
-            // group tasks by deadline for faster lookup
             tasksByDate = allTasks.stream()
                     .filter(task -> task.getDeadline() != null)
                     .collect(Collectors.groupingBy(Task::getDeadline));
